@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/gui/lftButton.png" type="Texture" id=1]
+[ext_resource path="res://assets/gui/pleftButton.png" type="Texture" id=2]
+[ext_resource path="res://assets/gui/prightButton.png" type="Texture" id=3]
+[ext_resource path="res://assets/gui/rhtButton.png" type="Texture" id=4]
+[ext_resource path="res://assets/gui/pause.png" type="Texture" id=5]
+[ext_resource path="res://assets/gui/pausepressed.png" type="Texture" id=6]
+
+[node name="TouchScreenButtons" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_horizontal_guides_": [ 702.407 ],
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeftTouchScreenButton" type="TouchScreenButton" parent="Control"]
+position = Vector2( 30, 557 )
+scale = Vector2( 0.6, 0.6 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+action = "move_left"
+
+[node name="Control2" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightTouchScreenButton" type="TouchScreenButton" parent="Control2"]
+position = Vector2( -181.342, 564.378 )
+scale = Vector2( 0.6, 0.6 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 3 )
+action = "move_right"
+
+[node name="Control3" type="Control" parent="."]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightTouchScreenButton" type="TouchScreenButton" parent="Control3"]
+position = Vector2( 57.1355, 63.6812 )
+normal = ExtResource( 5 )
+pressed = ExtResource( 6 )
+passby_press = true
+action = "pause"
+visibility_mode = 1

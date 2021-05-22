@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/UserInterface/RetryButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UserInterface/Title.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UserInterface/QuitButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=5]
+[ext_resource path="res://src/UserInterface/UserInterface.gd" type="Script" id=6]
+
+[node name="UserInterface" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 5 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreLabel" type="Label" parent="."]
+pause_mode = 2
+margin_left = 775.527
+margin_top = 59.33
+margin_right = 931.527
+margin_bottom = 90.33
+focus_neighbour_bottom = NodePath("../LifesLabel")
+text = "Score: %S "
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifesLabel" type="Label" parent="."]
+margin_left = 817.736
+margin_top = 104.859
+margin_right = 952.736
+margin_bottom = 135.859
+focus_neighbour_top = NodePath("../ScoreLabel")
+text = "Lifes: %S"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseOverlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.588235 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseLabel" parent="PauseOverlay" instance=ExtResource( 3 )]
+margin_top = 102.0
+margin_bottom = 155.0
+text = "Paused
+"
+align = 1
+
+[node name="PauseMenu" type="VBoxContainer" parent="PauseOverlay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -98.0
+margin_top = -131.0
+margin_right = 142.0
+margin_bottom = 37.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RetryButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 2 )]
+margin_right = 240.0
+margin_bottom = 82.0
+
+[node name="QuitButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 4 )]
+margin_top = 86.0
+margin_right = 240.0
+margin_bottom = 168.0

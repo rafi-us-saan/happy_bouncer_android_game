@@ -1,0 +1,133 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/worldtile.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=2]
+[ext_resource path="res://src/actors/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UserInterface/UserInterface.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Animations/AnimationPlayer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/UserInterface/TouchScreenButtons.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Objects/Portal2D.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/actors/enemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Objects/coin.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/Screens/GameOver.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/desertBG.png" type="Texture" id=11]
+[ext_resource path="res://src/actors/enemyt2.tscn" type="PackedScene" id=12]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Instructons"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/Label:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Lavel02" type="Node2D"]
+position = Vector2( -2.5199, -35.2778 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 554.939, 616.613 ],
+"_edit_vertical_guides_": [ 3598.96 ]
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="UserInterface" parent="CanvasLayer" instance=ExtResource( 4 )]
+
+[node name="desertBG" type="Sprite" parent="."]
+position = Vector2( 1647.55, 499.36 )
+scale = Vector2( 1.36966, 0.833333 )
+texture = ExtResource( 11 )
+offset = Vector2( -564.706, -163.299 )
+
+[node name="desertBG2" type="Sprite" parent="."]
+position = Vector2( 3497.94, 499.807 )
+scale = Vector2( 1.4671, 0.834028 )
+texture = ExtResource( 11 )
+offset = Vector2( -564.706, -163.299 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+cell_custom_transform = Transform2D( 64, 64, 0, 64, 0, 0 )
+collision_layer = 8
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -130959, 4, 0, -4, 4, 0, 65649, 4, 0, 262140, 4, 0, 327793, 4, 0, 524284, 4, 0, 589937, 4, 0, 786428, 4, 0, 720996, 12, 0, 721000, 13, 0, 721004, 14, 0, 852081, 4, 0, 1048572, 4, 0, 983093, 4, 0, 983113, 4, 0, 1048604, 4, 0, 1114225, 4, 0, 1245176, 4, 0, 1245180, 4, 0, 1310713, 4, 0, 1310719, 4, 0, 1245187, 4, 0, 1245189, 4, 0, 1245191, 4, 0, 1245193, 4, 0, 1245194, 4, 0, 1245195, 4, 0, 1245196, 4, 0, 1245197, 4, 0, 1245198, 4, 0, 1245199, 4, 0, 1245200, 4, 0, 1245201, 4, 0, 1245202, 4, 0, 1245203, 4, 0, 1245204, 4, 0, 1245205, 4, 0, 1245206, 4, 0, 1245207, 4, 0, 1245208, 4, 0, 1245209, 4, 0, 1245210, 4, 0, 1245211, 4, 0, 1245212, 4, 0, 1245213, 4, 0, 1245214, 4, 0, 1245215, 4, 0, 1245216, 4, 0, 1245217, 4, 0, 1245218, 4, 0, 1245219, 4, 0, 1245220, 4, 0, 1245224, 4, 0, 1245225, 4, 0, 1245226, 4, 0, 1245227, 4, 0, 1245230, 4, 0, 1245233, 4, 0, 1245236, 4, 0, 1245240, 4, 0, 1245243, 8, 0, 1245246, 4, 0, 1245247, 4, 0, 1245248, 4, 0, 1245249, 4, 0, 1245250, 4, 0, 1245251, 4, 0, 1245252, 4, 0, 1245253, 4, 0, 1245254, 4, 0, 1245255, 4, 0, 1245256, 4, 0, 1245257, 4, 0, 1245258, 4, 0, 1245259, 4, 0, 1245263, 4, 0, 1245266, 4, 0, 1245269, 4, 0, 1245272, 8, 0, 1245274, 4, 0, 1245276, 4, 0, 1245280, 4, 0, 1245283, 4, 0, 1245286, 4, 0, 1245290, 4, 0, 1245292, 4, 0, 1245293, 4, 0, 1310733, 4, 0, 1310734, 4, 0, 1310735, 4, 0, 1310736, 4, 0, 1310737, 4, 0, 1310738, 4, 0, 1310739, 4, 0, 1310740, 4, 0, 1310741, 4, 0, 1310742, 4, 0, 1310743, 4, 0, 1310744, 4, 0, 1310745, 4, 0, 1310746, 4, 0, 1310747, 4, 0, 1310748, 4, 0, 1310749, 4, 0, 1310750, 4, 0, 1310751, 4, 0, 1310752, 4, 0, 1310753, 4, 0, 1310754, 4, 0, 1310755, 4, 0, 1310756, 4, 0, 1310757, 4, 0, 1310758, 4, 0, 1376256, 4, 0, 1376260, 4, 0, 1376263, 4, 0, 1376273, 4, 0, 1376274, 4, 0, 1376275, 4, 0, 1376276, 4, 0, 1376277, 4, 0, 1376278, 4, 0, 1376279, 4, 0, 1376280, 4, 0, 1376281, 4, 0, 1376282, 4, 0, 1376283, 4, 0, 1376284, 4, 0, 1376285, 4, 0, 1376286, 4, 0, 1376287, 4, 0, 1376288, 4, 0, 1376289, 4, 0, 1376290, 4, 0, 1376347, 4, 0, 1376348, 4, 0, 1376365, 4, 0, 1507320, 4, 0, 1507321, 4, 0, 1507325, 4, 0, 1441792, 4, 0, 1441795, 4, 0, 1441799, 4, 0, 1441802, 4, 0, 1441806, 4, 0, 1441810, 4, 0, 1441814, 4, 0, 1441817, 4, 0, 1441820, 4, 0, 1441823, 4, 0, 1441827, 4, 0, 1441830, 4, 0, 1441832, 4, 0, 1441836, 4, 0, 1441837, 4, 0, 1441841, 4, 0, 1441844, 4, 0, 1441848, 4, 0, 1441851, 4, 0, 1441855, 4, 0, 1441859, 4, 0, 1441863, 4, 0, 1441866, 4, 0, 1441867, 4, 0, 1441871, 4, 0, 1441874, 4, 0, 1441877, 4, 0, 1441880, 4, 0, 1441884, 4, 0, 1441888, 4, 0, 1441892, 4, 0, 1441895, 4, 0, 1441899, 4, 0, 1441900, 4, 0, 1441901, 4, 0, 1638392, 4, 0, 1638396, 4, 0, 1572864, 4, 0, 1572868, 4, 0, 1572872, 4, 0, 1572876, 4, 0, 1572880, 4, 0, 1572884, 4, 0, 1572888, 4, 0, 1572892, 4, 0, 1572896, 4, 0, 1572900, 4, 0, 1572903, 4, 0, 1572907, 4, 0, 1572911, 4, 0, 1572915, 4, 0, 1572918, 4, 0, 1572922, 4, 0, 1572926, 4, 0, 1572930, 4, 0, 1572934, 4, 0, 1572938, 4, 0, 1572942, 4, 0, 1572946, 4, 0, 1572950, 4, 0, 1572954, 4, 0, 1572958, 4, 0, 1572962, 4, 0, 1572966, 4, 0, 1572970, 4, 0, 1572973, 4, 0 )
+
+[node name="player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 171.305, 479.712 )
+
+[node name="Camera2D" parent="player" index="2"]
+limit_right = 3600
+
+[node name="Enemy" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1351.45, 526.216 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 827.042, 547.192 )
+
+[node name="coin" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1370.78, 226.56 )
+
+[node name="coin2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1904.81, 415.276 )
+
+[node name="coin3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2492.63, 391.204 )
+
+[node name="coin4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2633.61, 167.429 )
+
+[node name="coin5" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2282.15, 286.969 )
+
+[node name="coin6" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2459.26, 170.406 )
+
+[node name="coin7" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2885.82, 234.767 )
+
+[node name="coin8" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2680.09, 519.914 )
+
+[node name="Portal2D" parent="." instance=ExtResource( 7 )]
+position = Vector2( 3048.88, 401.844 )
+next_scene = ExtResource( 10 )
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="TouchScreenButtons" parent="CanvasLayer2" instance=ExtResource( 6 )]
+margin_top = 104.0
+margin_bottom = 144.0
+
+[node name="AnimationPlayer" parent="." instance=ExtResource( 5 )]
+autoplay = "Instructons"
+anims/Instructons = SubResource( 1 )
+
+[node name="Label" type="Label" parent="AnimationPlayer"]
+margin_left = 200.0
+margin_top = 200.0
+margin_right = 452.0
+margin_bottom = 225.0
+theme = ExtResource( 2 )
+custom_colors/font_color = Color( 0.847059, 0.666667, 0.235294, 1 )
+text = "LEVEL 02 : PART 05:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Enemyt2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 2024.77, 555.925 )
+
+[node name="Enemyt3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 2875.9, 570.908 )
+
+[editable path="player"]

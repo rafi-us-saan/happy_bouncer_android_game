@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/UserInterface/PlayButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/backgrounds/Untitled-2.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=3]
+[ext_resource path="res://src/Screens/YouDiedScreen.gd" type="Script" id=4]
+[ext_resource path="res://assets/sounds/GameMusic.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/sounds/POL-brave-worm-short.wav" type="AudioStream" id=6]
+[ext_resource path="res://src/UserInterface/QuitButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/UserInterface/Title.tscn" type="PackedScene" id=9]
+
+[node name="GameOverScreen" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Untitled-2" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gameover" parent="." instance=ExtResource( 9 )]
+anchor_left = 0.0
+anchor_right = 1.0
+margin_left = -26.0
+margin_top = 100.0
+margin_right = -26.0
+margin_bottom = 151.0
+text = "Game Over"
+align = 1
+valign = 1
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -356.0
+margin_top = -209.5
+margin_right = 363.0
+margin_bottom = -50.5
+text = "Congratulations! 
+You Servived All the stages!
+Your final Score is %s"
+align = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -183.0
+margin_top = -13.0
+margin_right = 112.0
+margin_bottom = 105.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" parent="Menu" instance=ExtResource( 1 )]
+margin_right = 295.0
+margin_bottom = 57.0
+text = "Play Again"
+next_scene_path = "res://src/Lavels/Lavel01/Lavel01Scene01.tscn"
+
+[node name="QuitButton" parent="Menu" instance=ExtResource( 7 )]
+margin_top = 61.0
+margin_right = 295.0
+margin_bottom = 118.0
+
+[node name="GameMusic" parent="." instance=ExtResource( 5 )]
+stream = ExtResource( 6 )
+autoplay = true

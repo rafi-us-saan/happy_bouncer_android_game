@@ -1,0 +1,55 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://src/actors/Level1boss.gd" type="Script" id=1]
+[ext_resource path="res://assets/enemytype3/4 nemy3attack5.png" type="Texture" id=2]
+[ext_resource path="res://assets/enemytype3/4 nemy3attack8.png" type="Texture" id=3]
+[ext_resource path="res://assets/enemytype3/4 nemy3attack7.png" type="Texture" id=4]
+[ext_resource path="res://assets/enemytype3/4 nemy3attack6.png" type="Texture" id=5]
+[ext_resource path="res://assets/enemytype3/3 enemy3attack3.png" type="Texture" id=6]
+[ext_resource path="res://assets/enemytype3/4 nemy3attack4.png" type="Texture" id=7]
+[ext_resource path="res://assets/enemytype3/1 enemy3attack1.png" type="Texture" id=8]
+[ext_resource path="res://assets/enemytype3/2 enemy3attack2.png" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 107.926, 82.3775 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 93.8442, 43.6638 )
+
+[node name="Level1boss" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -127.708, -136.688 ]
+}
+
+[node name="enemy" type="AnimatedSprite" parent="."]
+position = Vector2( 13.8275, -26.0921 )
+frames = SubResource( 1 )
+animation = "attack"
+frame = 5
+speed_scale = 0.5
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 7.60435, 12.8815 )
+shape = SubResource( 2 )
+
+[node name="hammer" type="CollisionShape2D" parent="."]
+position = Vector2( 2.60435, -106.119 )
+shape = SubResource( 3 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( 46.0511, -405.887 )
+scale = Vector2( 540.469, 53.6662 )
+process_parent = true
+physics_process_parent = true

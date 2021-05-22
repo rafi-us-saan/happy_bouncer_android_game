@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/actors/enemyt2.gd" type="Script" id=1]
+[ext_resource path="res://assets/enemy2.png" type="Texture" id=2]
+[ext_resource path="res://assets/sounds/GameMusic.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sounds/effects/sfx_deathscream_alien2.wav" type="AudioStream" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 52.1326, 55.704 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 34.9723, 33.649 )
+
+[node name="Enemyt2" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -127.708, -136.688 ]
+}
+
+[node name="enemy" type="Sprite" parent="."]
+position = Vector2( 13.8275, -26.0921 )
+scale = Vector2( 1.01368, 1.0559 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 10.3674, -24.296 )
+shape = SubResource( 1 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( 6.76612, -98.0801 )
+scale = Vector2( 134.857, 18.1837 )
+process_parent = true
+physics_process_parent = true
+
+[node name="SpeedDevil2" parent="VisibilityEnabler2D" instance=ExtResource( 3 )]
+stream = ExtResource( 4 )
+autoplay = true
+
+[node name="StompDetector" type="Area2D" parent="."]
+modulate = Color( 0.321569, 0.603922, 0.964706, 1 )
+position = Vector2( 0, -42 )
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompDetector"]
+position = Vector2( 7.63261, -40.7548 )
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.3
+
+[node name="SpeedDevil" parent="." instance=ExtResource( 3 )]
+stream = ExtResource( 4 )
+[connection signal="body_entered" from="StompDetector" to="." method="_on_StompDetector_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
